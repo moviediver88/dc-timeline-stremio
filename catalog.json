@@ -1,90 +1,716 @@
 [
-["Batman",1989,"movie","Batman","tt0096895"],
-["Batman Returns",1992,"movie","Batman","tt0103776"],
-["Batman Forever",1995,"movie","Batman","tt0112462"],
-["Batman & Robin",1997,"movie","Batman","tt0118688"],
-["Batman Begins",2005,"movie","Nolan Batman","tt0372784"],
-["The Dark Knight",2008,"movie","Nolan Batman","tt0468569"],
-["The Dark Knight Rises",2012,"movie","Nolan Batman","tt1345836"],
-["Man of Steel",2013,"movie","DCEU","tt0770828"],
-["Batman v Superman: Dawn of Justice",2016,"movie","DCEU","tt2975590"],
-["Suicide Squad",2016,"movie","DCEU","tt1386697"],
-["Wonder Woman",2017,"movie","DCEU","tt0451279"],
-["Justice League",2017,"movie","DCEU","tt0974015"],
-["Aquaman",2018,"movie","DCEU","tt1477834"],
-["Shazam!",2019,"movie","DCEU","tt0448115"],
-["Birds of Prey",2020,"movie","DCEU","tt7713068"],
-["Wonder Woman 1984",2020,"movie","DCEU","tt7126948"],
-["Zack Snyder's Justice League",2021,"movie","DCEU","tt12361974"],
-["The Suicide Squad",2021,"movie","DCEU","tt6334354"],
-["Black Adam",2022,"movie","DCEU","tt6443346"],
-["Shazam! Fury of the Gods",2023,"movie","DCEU","tt10151854"],
-["The Flash",2023,"movie","DCEU","tt0439572"],
-["Blue Beetle",2023,"movie","DCEU","tt9362930"],
-["Aquaman and the Lost Kingdom",2023,"movie","DCEU","tt9663764"],
-["Superman",1978,"movie","Superman","tt0078346"],
-["Superman II",1980,"movie","Superman","tt0081573"],
-["Superman III",1983,"movie","Superman","tt0086393"],
-["Superman IV: The Quest for Peace",1987,"movie","Superman","tt0094074"],
-["Superman Returns",2006,"movie","Superman","tt0348150"],
-["Superman",2025,"movie","DCU","tt5950044"],
-["The Batman",2022,"movie","The Batman","tt1877830"],
-["Joker",2019,"movie","Joker","tt7286456"],
-["Joker: Folie à Deux",2024,"movie","Joker","tt11315808"],
-["Watchmen",2009,"movie","Standalone","tt0409459"],
-["V for Vendetta",2005,"movie","Standalone","tt0434409"],
-["Constantine",2005,"movie","Standalone","tt0360486"],
-["Green Lantern",2011,"movie","Standalone","tt1133985"],
-["Catwoman",2004,"movie","Standalone","tt0327554"],
-["The LEGO Batman Movie",2017,"movie","Animation","tt4116284"],
-["Batman: Mask of the Phantasm",1993,"movie","Animation","tt0106364"],
-["Batman: Under the Red Hood",2010,"movie","Animation","tt1569923"],
-["Justice League: The Flashpoint Paradox",2013,"movie","Animation","tt2820466"],
-["Justice League: War",2014,"movie","Animation","tt3060952"],
-["Batman: The Killing Joke",2016,"movie","Animation","tt4853102"],
-["Justice League Dark",2017,"movie","Animation","tt6556890"],
-["Batman: Gotham by Gaslight",2018,"movie","Animation","tt7167630"],
-["Justice League Dark: Apokolips War",2020,"movie","Animation","tt11079148"],
-["Batman: The Long Halloween, Part One",2021,"movie","Animation","tt14324650"],
-["Batman: The Long Halloween, Part Two",2021,"movie","Animation","tt14402926"],
-["Batman: The Animated Series",1992,"series","Animation","tt0103359"],
-["Superman: The Animated Series",1996,"series","Animation","tt0115378"],
-["Batman Beyond",1999,"series","Animation","tt0147746"],
-["Justice League",2001,"series","Animation","tt0275137"],
-["Teen Titans",2003,"series","Animation","tt0343314"],
-["Justice League Unlimited",2004,"series","Animation","tt0397159"],
-["Young Justice",2010,"series","Animation","tt1641384"],
-["Harley Quinn",2019,"series","Animation","tt7658402"],
-["My Adventures with Superman",2023,"series","Animation","tt14681924"],
-["Batman: Caped Crusader",2024,"series","Animation","tt14681596"],
-["Smallville",2001,"series","Superman","tt0279600"],
-["Lois & Clark: The New Adventures of Superman",1993,"series","Superman","tt0106057"],
-["Superman & Lois",2021,"series","Superman","tt11192306"],
-["Arrow",2012,"series","Arrowverse","tt2193021"],
-["The Flash",2014,"series","Arrowverse","tt3107288"],
-["Supergirl",2015,"series","Arrowverse","tt4016454"],
-["DC's Legends of Tomorrow",2016,"series","Arrowverse","tt4532368"],
-["Black Lightning",2018,"series","Arrowverse","tt6045840"],
-["Batwoman",2019,"series","Arrowverse","tt8712204"],
-["Gotham",2014,"series","Batman","tt3749900"],
-["Pennyworth",2019,"series","Batman","tt8425532"],
-["The Penguin",2024,"series","The Batman","tt15435876"],
-["Titans",2018,"series","Standalone","tt1043813"],
-["Doom Patrol",2019,"series","Standalone","tt8416494"],
-["Swamp Thing",2019,"series","Standalone","tt8362852"],
-["Watchmen",2019,"series","Standalone","tt7049682"],
-["Peacemaker",2022,"series","DCEU","tt13146488"],
-["Creature Commandos",2024,"series","DCU","tt26545355"],
-["Krypton",2018,"series","Superman","tt4276624"],
-["The Sandman",2022,"series","Standalone","tt1751634"],
-["Lucifer",2016,"series","Standalone","tt4052886"],
-["Sweet Tooth",2021,"series","Standalone","tt12809988"],
-["iZombie",2015,"series","Standalone","tt3501584"],
-["Human Target",2010,"series","Standalone","tt1439741"],
-["Constantine",2014,"series","Standalone","tt3489184"],
-["Stargirl",2020,"series","Standalone","tt8722888"],
-["The Suicide Squad: Isekai",2024,"series","Animation",null],
-["Justice League: Crisis on Infinite Earths – Part One",2024,"movie","Animation",null],
-["Justice League: Crisis on Infinite Earths – Part Two",2024,"movie","Animation",null],
-["Justice League: Crisis on Infinite Earths – Part Three",2024,"movie","Animation",null]
+  [
+    "Batman",
+    1989,
+    "movie",
+    "Batman",
+    "tt0096895"
+  ],
+  [
+    "Batman Returns",
+    1992,
+    "movie",
+    "Batman",
+    "tt0103776"
+  ],
+  [
+    "Batman Forever",
+    1995,
+    "movie",
+    "Batman",
+    "tt0112462"
+  ],
+  [
+    "Batman & Robin",
+    1997,
+    "movie",
+    "Batman",
+    "tt0118688"
+  ],
+  [
+    "Batman Begins",
+    2005,
+    "movie",
+    "Nolan Batman",
+    "tt0372784"
+  ],
+  [
+    "The Dark Knight",
+    2008,
+    "movie",
+    "Nolan Batman",
+    "tt0468569"
+  ],
+  [
+    "The Dark Knight Rises",
+    2012,
+    "movie",
+    "Nolan Batman",
+    "tt1345836"
+  ],
+  [
+    "Man of Steel",
+    2013,
+    "movie",
+    "DCEU",
+    "tt0770828"
+  ],
+  [
+    "Batman v Superman: Dawn of Justice",
+    2016,
+    "movie",
+    "DCEU",
+    "tt2975590"
+  ],
+  [
+    "Suicide Squad",
+    2016,
+    "movie",
+    "DCEU",
+    "tt1386697"
+  ],
+  [
+    "Wonder Woman",
+    2017,
+    "movie",
+    "DCEU",
+    "tt0451279"
+  ],
+  [
+    "Justice League",
+    2017,
+    "movie",
+    "DCEU",
+    "tt0974015"
+  ],
+  [
+    "Aquaman",
+    2018,
+    "movie",
+    "DCEU",
+    "tt1477834"
+  ],
+  [
+    "Shazam!",
+    2019,
+    "movie",
+    "DCEU",
+    "tt0448115"
+  ],
+  [
+    "Birds of Prey",
+    2020,
+    "movie",
+    "DCEU",
+    "tt7713068"
+  ],
+  [
+    "Wonder Woman 1984",
+    2020,
+    "movie",
+    "DCEU",
+    "tt7126948"
+  ],
+  [
+    "Zack Snyder's Justice League",
+    2021,
+    "movie",
+    "DCEU",
+    "tt12361974"
+  ],
+  [
+    "The Suicide Squad",
+    2021,
+    "movie",
+    "DCEU",
+    "tt6334354"
+  ],
+  [
+    "Black Adam",
+    2022,
+    "movie",
+    "DCEU",
+    "tt6443346"
+  ],
+  [
+    "Shazam! Fury of the Gods",
+    2023,
+    "movie",
+    "DCEU",
+    "tt10151854"
+  ],
+  [
+    "The Flash",
+    2023,
+    "movie",
+    "DCEU",
+    "tt0439572"
+  ],
+  [
+    "Blue Beetle",
+    2023,
+    "movie",
+    "DCEU",
+    "tt9362930"
+  ],
+  [
+    "Aquaman and the Lost Kingdom",
+    2023,
+    "movie",
+    "DCEU",
+    "tt9663764"
+  ],
+  [
+    "Superman",
+    1978,
+    "movie",
+    "Superman",
+    "tt0078346"
+  ],
+  [
+    "Superman II",
+    1980,
+    "movie",
+    "Superman",
+    "tt0081573"
+  ],
+  [
+    "Superman III",
+    1983,
+    "movie",
+    "Superman",
+    "tt0086393"
+  ],
+  [
+    "Superman IV: The Quest for Peace",
+    1987,
+    "movie",
+    "Superman",
+    "tt0094074"
+  ],
+  [
+    "Superman Returns",
+    2006,
+    "movie",
+    "Superman",
+    "tt0348150"
+  ],
+  [
+    "Superman",
+    2025,
+    "movie",
+    "DCU",
+    "tt5950044"
+  ],
+  [
+    "The Batman",
+    2022,
+    "movie",
+    "The Batman",
+    "tt1877830"
+  ],
+  [
+    "Joker",
+    2019,
+    "movie",
+    "Joker",
+    "tt7286456"
+  ],
+  [
+    "Joker: Folie à Deux",
+    2024,
+    "movie",
+    "Joker",
+    "tt11315808"
+  ],
+  [
+    "Watchmen",
+    2009,
+    "movie",
+    "Standalone",
+    "tt0409459"
+  ],
+  [
+    "V for Vendetta",
+    2005,
+    "movie",
+    "Standalone",
+    "tt0434409"
+  ],
+  [
+    "Constantine",
+    2005,
+    "movie",
+    "Standalone",
+    "tt0360486"
+  ],
+  [
+    "Green Lantern",
+    2011,
+    "movie",
+    "Standalone",
+    "tt1133985"
+  ],
+  [
+    "Catwoman",
+    2004,
+    "movie",
+    "Standalone",
+    "tt0327554"
+  ],
+  [
+    "The LEGO Batman Movie",
+    2017,
+    "movie",
+    "Animation",
+    "tt4116284"
+  ],
+  [
+    "Batman: Mask of the Phantasm",
+    1993,
+    "movie",
+    "Animation",
+    "tt0106364"
+  ],
+  [
+    "Batman: Under the Red Hood",
+    2010,
+    "movie",
+    "Animation",
+    "tt1569923"
+  ],
+  [
+    "Justice League: The Flashpoint Paradox",
+    2013,
+    "movie",
+    "Animation",
+    "tt2820466"
+  ],
+  [
+    "Justice League: War",
+    2014,
+    "movie",
+    "Animation",
+    "tt3060952"
+  ],
+  [
+    "Batman: The Killing Joke",
+    2016,
+    "movie",
+    "Animation",
+    "tt4853102"
+  ],
+  [
+    "Justice League Dark",
+    2017,
+    "movie",
+    "Animation",
+    "tt6556890"
+  ],
+  [
+    "Batman: Gotham by Gaslight",
+    2018,
+    "movie",
+    "Animation",
+    "tt7167630"
+  ],
+  [
+    "Justice League Dark: Apokolips War",
+    2020,
+    "movie",
+    "Animation",
+    "tt11079148"
+  ],
+  [
+    "Batman: The Long Halloween, Part One",
+    2021,
+    "movie",
+    "Animation",
+    "tt14324650"
+  ],
+  [
+    "Batman: The Long Halloween, Part Two",
+    2021,
+    "movie",
+    "Animation",
+    "tt14402926"
+  ],
+  [
+    "Batman: The Animated Series",
+    1992,
+    "series",
+    "Animation",
+    "tt0103359"
+  ],
+  [
+    "Superman: The Animated Series",
+    1996,
+    "series",
+    "Animation",
+    "tt0115378"
+  ],
+  [
+    "Batman Beyond",
+    1999,
+    "series",
+    "Animation",
+    "tt0147746"
+  ],
+  [
+    "Justice League",
+    2001,
+    "series",
+    "Animation",
+    "tt0275137"
+  ],
+  [
+    "Teen Titans",
+    2003,
+    "series",
+    "Animation",
+    "tt0343314"
+  ],
+  [
+    "Justice League Unlimited",
+    2004,
+    "series",
+    "Animation",
+    "tt0397159"
+  ],
+  [
+    "Young Justice",
+    2010,
+    "series",
+    "Animation",
+    "tt1641384"
+  ],
+  [
+    "Harley Quinn",
+    2019,
+    "series",
+    "Animation",
+    "tt7658402"
+  ],
+  [
+    "My Adventures with Superman",
+    2023,
+    "series",
+    "Animation",
+    "tt14681924"
+  ],
+  [
+    "Batman: Caped Crusader",
+    2024,
+    "series",
+    "Animation",
+    "tt14681596"
+  ],
+  [
+    "Smallville",
+    2001,
+    "series",
+    "Superman",
+    "tt0279600"
+  ],
+  [
+    "Lois & Clark: The New Adventures of Superman",
+    1993,
+    "series",
+    "Superman",
+    "tt0106057"
+  ],
+  [
+    "Superman & Lois",
+    2021,
+    "series",
+    "Superman",
+    "tt11192306"
+  ],
+  [
+    "Arrow",
+    2012,
+    "series",
+    "Arrowverse",
+    "tt2193021"
+  ],
+  [
+    "The Flash",
+    2014,
+    "series",
+    "Arrowverse",
+    "tt3107288"
+  ],
+  [
+    "Supergirl",
+    2015,
+    "series",
+    "Arrowverse",
+    "tt4016454"
+  ],
+  [
+    "DC's Legends of Tomorrow",
+    2016,
+    "series",
+    "Arrowverse",
+    "tt4532368"
+  ],
+  [
+    "Black Lightning",
+    2018,
+    "series",
+    "Arrowverse",
+    "tt6045840"
+  ],
+  [
+    "Batwoman",
+    2019,
+    "series",
+    "Arrowverse",
+    "tt8712204"
+  ],
+  [
+    "Gotham",
+    2014,
+    "series",
+    "Batman",
+    "tt3749900"
+  ],
+  [
+    "Pennyworth",
+    2019,
+    "series",
+    "Batman",
+    "tt8425532"
+  ],
+  [
+    "The Penguin",
+    2024,
+    "series",
+    "The Batman",
+    "tt15435876"
+  ],
+  [
+    "Titans",
+    2018,
+    "series",
+    "Standalone",
+    "tt1043813"
+  ],
+  [
+    "Doom Patrol",
+    2019,
+    "series",
+    "Standalone",
+    "tt8416494"
+  ],
+  [
+    "Swamp Thing",
+    2019,
+    "series",
+    "Standalone",
+    "tt8362852"
+  ],
+  [
+    "Watchmen",
+    2019,
+    "series",
+    "Standalone",
+    "tt7049682"
+  ],
+  [
+    "Peacemaker",
+    2022,
+    "series",
+    "DCEU",
+    "tt13146488"
+  ],
+  [
+    "Creature Commandos",
+    2024,
+    "series",
+    "DCU",
+    "tt26545355"
+  ],
+  [
+    "Krypton",
+    2018,
+    "series",
+    "Superman",
+    "tt4276624"
+  ],
+  [
+    "The Sandman",
+    2022,
+    "series",
+    "Standalone",
+    "tt1751634"
+  ],
+  [
+    "Lucifer",
+    2016,
+    "series",
+    "Standalone",
+    "tt4052886"
+  ],
+  [
+    "Sweet Tooth",
+    2021,
+    "series",
+    "Standalone",
+    "tt12809988"
+  ],
+  [
+    "iZombie",
+    2015,
+    "series",
+    "Standalone",
+    "tt3501584"
+  ],
+  [
+    "Human Target",
+    2010,
+    "series",
+    "Standalone",
+    "tt1439741"
+  ],
+  [
+    "Constantine",
+    2014,
+    "series",
+    "Standalone",
+    "tt3489184"
+  ],
+  [
+    "Stargirl",
+    2020,
+    "series",
+    "Standalone",
+    "tt8722888"
+  ],
+  [
+    "The Suicide Squad: Isekai",
+    2024,
+    "series",
+    "Animation",
+    "tt28279848"
+  ],
+  [
+    "Justice League: Crisis on Infinite Earths – Part One",
+    2024,
+    "movie",
+    "Animation",
+    "tt29195117"
+  ],
+  [
+    "Justice League: Crisis on Infinite Earths – Part Two",
+    2024,
+    "movie",
+    "Animation",
+    "tt30150907"
+  ],
+  [
+    "Justice League: Crisis on Infinite Earths – Part Three",
+    2024,
+    "movie",
+    "Animation",
+    "tt30150917"
+  ],
+  [
+    "Superman and the Mole Men",
+    1951,
+    "movie",
+    "Superman",
+    "tt0044091"
+  ],
+  [
+    "Adventures of Superman",
+    1952,
+    "series",
+    "Superman",
+    "tt0044231"
+  ],
+  [
+    "Batman",
+    1966,
+    "series",
+    "Batman",
+    "tt0059968"
+  ],
+  [
+    "Batman",
+    1966,
+    "movie",
+    "Batman",
+    "tt0060153"
+  ],
+  [
+    "Super Friends",
+    1973,
+    "series",
+    "Animation",
+    "tt0075473"
+  ],
+  [
+    "Wonder Woman",
+    1975,
+    "series",
+    "Standalone",
+    "tt0074074"
+  ],
+  [
+    "The New Adventures of Batman",
+    1977,
+    "series",
+    "Animation",
+    "tt0075543"
+  ],
+  [
+    "Swamp Thing",
+    1982,
+    "movie",
+    "Standalone",
+    "tt0084745"
+  ],
+  [
+    "Supergirl",
+    1984,
+    "movie",
+    "Superman",
+    "tt0088206"
+  ],
+  [
+    "Superboy",
+    1988,
+    "series",
+    "Superman",
+    "tt0094559"
+  ],
+  [
+    "The Return of Swamp Thing",
+    1989,
+    "movie",
+    "Standalone",
+    "tt0098193"
+  ],
+  [
+    "The Flash",
+    1990,
+    "series",
+    "Standalone",
+    "tt0098798"
+  ],
+  [
+    "Swamp Thing",
+    1990,
+    "series",
+    "Standalone",
+    "tt0098919"
+  ],
+  [
+    "Static Shock",
+    2000,
+    "series",
+    "Animation",
+    "tt0247729"
+  ]
 ]
