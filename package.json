@@ -1,0 +1,1 @@
+{"name":"dc-timeline-stremio-addon","version":"1.0.0","private":true,"description":"DC movies and television by release date and separate story timelines","scripts":{"start":"node server.js","test":"node test.js"},"engines":{"node":">=18"}}

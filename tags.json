@@ -1,0 +1,217 @@
+{
+  "Batman: Mask of the Phantasm": [
+    "dcau",
+    "batman",
+    "batman_animations",
+    "all_dc_animated_movies",
+    "dc_kids_family"
+  ],
+  "Batman: The Animated Series": [
+    "dcau",
+    "batman",
+    "batman_animations",
+    "all_dc_animated_series",
+    "classic_dc_tv_shows",
+    "dc_kids_family"
+  ],
+  "Superman: The Animated Series": [
+    "dcau",
+    "superman",
+    "superman_animations",
+    "all_dc_animated_series",
+    "classic_dc_tv_shows",
+    "dc_kids_family"
+  ],
+  "Batman Beyond": [
+    "dcau",
+    "batman",
+    "batman_animations",
+    "all_dc_animated_series",
+    "classic_dc_tv_shows"
+  ],
+  "Justice League|2001": [
+    "dcau",
+    "justice_league",
+    "justice_league_animations",
+    "all_dc_animated_series",
+    "classic_dc_tv_shows"
+  ],
+  "Justice League Unlimited": [
+    "dcau",
+    "justice_league",
+    "justice_league_animations",
+    "all_dc_animated_series"
+  ],
+  "Justice League: The Flashpoint Paradox": [
+    "dcamu",
+    "the_flash",
+    "justice_league",
+    "justice_league_animations"
+  ],
+  "Justice League: War": [
+    "dcamu",
+    "justice_league",
+    "justice_league_animations"
+  ],
+  "Justice League Dark": [
+    "dcamu",
+    "justice_league",
+    "justice_league_animations",
+    "constantine"
+  ],
+  "Justice League Dark: Apokolips War": [
+    "dcamu",
+    "justice_league",
+    "justice_league_animations"
+  ],
+  "Justice League: Crisis on Infinite Earths \u2013 Part One": [
+    "tomorrowverse",
+    "justice_league",
+    "justice_league_animations"
+  ],
+  "Justice League: Crisis on Infinite Earths \u2013 Part Two": [
+    "tomorrowverse",
+    "justice_league",
+    "justice_league_animations"
+  ],
+  "Justice League: Crisis on Infinite Earths \u2013 Part Three": [
+    "tomorrowverse",
+    "justice_league",
+    "justice_league_animations"
+  ],
+  "The LEGO Batman Movie": [
+    "dc_lego_movies_specials",
+    "dc_kids_family",
+    "batman",
+    "batman_animations"
+  ],
+  "Young Justice": [
+    "teen_titans",
+    "all_dc_animated_series"
+  ],
+  "Teen Titans": [
+    "teen_titans",
+    "all_dc_animated_series",
+    "dc_kids_family"
+  ],
+  "Harley Quinn": [
+    "harley_quinn",
+    "all_dc_animated_series"
+  ],
+  "The Suicide Squad: Isekai": [
+    "suicide_squad",
+    "all_dc_animated_series"
+  ],
+  "Wonder Woman": [
+    "wonder_woman"
+  ],
+  "Wonder Woman 1984": [
+    "wonder_woman"
+  ],
+  "Black Adam": [
+    "black_adam"
+  ],
+  "The Flash|2023": [
+    "the_flash"
+  ],
+  "The Flash|2014": [
+    "the_flash"
+  ],
+  "Green Lantern": [
+    "green_lantern"
+  ],
+  "Aquaman": [
+    "aquaman"
+  ],
+  "Aquaman and the Lost Kingdom": [
+    "aquaman"
+  ],
+  "Shazam!": [
+    "shazam"
+  ],
+  "Shazam! Fury of the Gods": [
+    "shazam"
+  ],
+  "Suicide Squad": [
+    "suicide_squad",
+    "villain_focused_stories"
+  ],
+  "The Suicide Squad": [
+    "suicide_squad",
+    "villain_focused_stories"
+  ],
+  "Birds of Prey": [
+    "harley_quinn"
+  ],
+  "Joker": [
+    "joker",
+    "villain_focused_stories"
+  ],
+  "Joker: Folie \u00e0 Deux": [
+    "joker",
+    "villain_focused_stories"
+  ],
+  "Watchmen|2009": [
+    "watchmen"
+  ],
+  "Watchmen|2019": [
+    "watchmen"
+  ],
+  "Supergirl": [
+    "supergirl"
+  ],
+  "Arrow": [
+    "green_arrow"
+  ],
+  "Constantine|2005": [
+    "constantine"
+  ],
+  "Constantine|2014": [
+    "constantine"
+  ],
+  "Swamp Thing": [
+    "swamp_thing"
+  ],
+  "Peacemaker": [
+    "suicide_squad"
+  ],
+  "The Penguin": [
+    "batman",
+    "villain_focused_stories"
+  ],
+  "Gotham": [
+    "batman",
+    "villain_focused_stories"
+  ],
+  "Pennyworth": [
+    "batman"
+  ],
+  "Superman & Lois": [
+    "superman"
+  ],
+  "Krypton": [
+    "superman"
+  ],
+  "Smallville": [
+    "superman"
+  ],
+  "Lois & Clark: The New Adventures of Superman": [
+    "superman"
+  ],
+  "My Adventures with Superman": [
+    "superman",
+    "superman_animations"
+  ],
+  "Batman: Caped Crusader": [
+    "batman",
+    "batman_animations"
+  ],
+  "Batman: The Long Halloween, Part One": [
+    "batman",
+    "batman_animations"
+  ],
+  "Batman: The Long Halloween, Part Two": [
+    "batman",
+    "batman_animations"
+  ]
+}

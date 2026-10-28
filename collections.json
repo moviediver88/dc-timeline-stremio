@@ -1,0 +1,287 @@
+[
+  {
+    "id": "all_dc_movies_tv_shows",
+    "name": "All DC Movies & TV Shows",
+    "group": "Essentials"
+  },
+  {
+    "id": "release_order_oldest_first",
+    "name": "Release Order \u2014 Oldest First",
+    "group": "Essentials"
+  },
+  {
+    "id": "release_order_newest_first",
+    "name": "Release Order \u2014 Newest First",
+    "group": "Essentials"
+  },
+  {
+    "id": "chronological_story_order",
+    "name": "Chronological Story Order",
+    "group": "Essentials"
+  },
+  {
+    "id": "movies_only",
+    "name": "Movies Only",
+    "group": "Essentials"
+  },
+  {
+    "id": "tv_series_only",
+    "name": "TV Series Only",
+    "group": "Essentials"
+  },
+  {
+    "id": "upcoming_dc_releases",
+    "name": "Upcoming DC Releases",
+    "group": "Essentials"
+  },
+  {
+    "id": "essential_dc_watch_order",
+    "name": "Essential DC Watch Order",
+    "group": "Essentials"
+  },
+  {
+    "id": "dc_universe_dcu_james_gunn",
+    "name": "DC Universe (DCU \u2014 James Gunn)",
+    "group": "Universes"
+  },
+  {
+    "id": "dc_extended_universe_dceu",
+    "name": "DC Extended Universe (DCEU)",
+    "group": "Universes"
+  },
+  {
+    "id": "arrowverse_complete_watch_order",
+    "name": "Arrowverse \u2014 Complete Watch Order",
+    "group": "Universes"
+  },
+  {
+    "id": "the_batman_reeves_universe",
+    "name": "The Batman / Reeves Universe",
+    "group": "Universes"
+  },
+  {
+    "id": "joker_universe",
+    "name": "Joker Universe",
+    "group": "Universes"
+  },
+  {
+    "id": "dc_elseworlds",
+    "name": "DC Elseworlds",
+    "group": "Universes"
+  },
+  {
+    "id": "dc_animated_movie_universe_dcamu",
+    "name": "DC Animated Movie Universe (DCAMU)",
+    "group": "Universes"
+  },
+  {
+    "id": "tomorrowverse",
+    "name": "Tomorrowverse",
+    "group": "Universes"
+  },
+  {
+    "id": "dc_animated_universe_dcau",
+    "name": "DC Animated Universe (DCAU)",
+    "group": "Universes"
+  },
+  {
+    "id": "standalone_dc_productions",
+    "name": "Standalone DC Productions",
+    "group": "Universes"
+  },
+  {
+    "id": "release_order_within_each_universe",
+    "name": "Release Order Within Each Universe",
+    "group": "Universes"
+  },
+  {
+    "id": "batman",
+    "name": "Batman",
+    "group": "Characters"
+  },
+  {
+    "id": "superman",
+    "name": "Superman",
+    "group": "Characters"
+  },
+  {
+    "id": "wonder_woman",
+    "name": "Wonder Woman",
+    "group": "Characters"
+  },
+  {
+    "id": "the_flash",
+    "name": "The Flash",
+    "group": "Characters"
+  },
+  {
+    "id": "green_lantern",
+    "name": "Green Lantern",
+    "group": "Characters"
+  },
+  {
+    "id": "aquaman",
+    "name": "Aquaman",
+    "group": "Characters"
+  },
+  {
+    "id": "shazam",
+    "name": "Shazam",
+    "group": "Characters"
+  },
+  {
+    "id": "justice_league",
+    "name": "Justice League",
+    "group": "Characters"
+  },
+  {
+    "id": "teen_titans",
+    "name": "Teen Titans",
+    "group": "Characters"
+  },
+  {
+    "id": "suicide_squad",
+    "name": "Suicide Squad",
+    "group": "Characters"
+  },
+  {
+    "id": "harley_quinn",
+    "name": "Harley Quinn",
+    "group": "Characters"
+  },
+  {
+    "id": "joker",
+    "name": "Joker",
+    "group": "Characters"
+  },
+  {
+    "id": "supergirl",
+    "name": "Supergirl",
+    "group": "Characters"
+  },
+  {
+    "id": "constantine",
+    "name": "Constantine",
+    "group": "Characters"
+  },
+  {
+    "id": "swamp_thing",
+    "name": "Swamp Thing",
+    "group": "Characters"
+  },
+  {
+    "id": "green_arrow",
+    "name": "Green Arrow",
+    "group": "Characters"
+  },
+  {
+    "id": "black_adam",
+    "name": "Black Adam",
+    "group": "Characters"
+  },
+  {
+    "id": "watchmen",
+    "name": "Watchmen",
+    "group": "Characters"
+  },
+  {
+    "id": "all_dc_animated_movies",
+    "name": "All DC Animated Movies",
+    "group": "Animation & TV"
+  },
+  {
+    "id": "all_dc_animated_series",
+    "name": "All DC Animated Series",
+    "group": "Animation & TV"
+  },
+  {
+    "id": "batman_animations",
+    "name": "Batman Animations",
+    "group": "Animation & TV"
+  },
+  {
+    "id": "superman_animations",
+    "name": "Superman Animations",
+    "group": "Animation & TV"
+  },
+  {
+    "id": "justice_league_animations",
+    "name": "Justice League Animations",
+    "group": "Animation & TV"
+  },
+  {
+    "id": "classic_dc_tv_shows",
+    "name": "Classic DC TV Shows",
+    "group": "Animation & TV"
+  },
+  {
+    "id": "modern_dc_tv_shows",
+    "name": "Modern DC TV Shows",
+    "group": "Animation & TV"
+  },
+  {
+    "id": "dc_kids_family",
+    "name": "DC Kids & Family",
+    "group": "Animation & TV"
+  },
+  {
+    "id": "dc_lego_movies_specials",
+    "name": "DC LEGO Movies & Specials",
+    "group": "Animation & TV"
+  },
+  {
+    "id": "dc_animated_shorts",
+    "name": "DC Animated Shorts",
+    "group": "Animation & TV"
+  },
+  {
+    "id": "crossover_event_watch_orders",
+    "name": "Crossover Event Watch Orders",
+    "group": "Specialty"
+  },
+  {
+    "id": "connected_movies_tv_episodes",
+    "name": "Connected Movies & TV Episodes",
+    "group": "Specialty"
+  },
+  {
+    "id": "character_origin_stories",
+    "name": "Character Origin Stories",
+    "group": "Specialty"
+  },
+  {
+    "id": "villain_focused_stories",
+    "name": "Villain-Focused Stories",
+    "group": "Specialty"
+  },
+  {
+    "id": "live_action_only",
+    "name": "Live Action Only",
+    "group": "Specialty"
+  },
+  {
+    "id": "animation_only",
+    "name": "Animation Only",
+    "group": "Specialty"
+  },
+  {
+    "id": "dc_movies_by_decade",
+    "name": "DC Movies by Decade",
+    "group": "Specialty"
+  },
+  {
+    "id": "dc_tv_shows_by_decade",
+    "name": "DC TV Shows by Decade",
+    "group": "Specialty"
+  },
+  {
+    "id": "completed_series",
+    "name": "Completed Series",
+    "group": "Specialty"
+  },
+  {
+    "id": "newly_released_titles",
+    "name": "Newly Released Titles",
+    "group": "Specialty"
+  }
+]
