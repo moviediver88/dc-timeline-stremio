@@ -46,9 +46,48 @@ const aliases={
  'arrowverse_complete_watch_order':'arrowverse','the_batman_reeves_universe':'reeves','joker_universe':'joker',
  'dc_animated_movie_universe_dcamu':'dcamu','tomorrowverse':'tomorrowverse','dc_animated_universe_dcau':'dcau'
 };
-const typeNames={movie:'Movies',series:'TV Series'};
-const catalogs=configs.flatMap(c=>['movie','series'].filter(type=>!((c.id==='movies_only'||c.id==='all_dc_animated_movies'||c.id==='dc_movies_by_decade')&&type==='series')&&!((c.id==='tv_series_only'||c.id==='all_dc_animated_series'||c.id==='dc_tv_shows_by_decade')&&type==='movie')).map(type=>({id:`dc_${c.id}_${type}`,type,name:`${c.group} • ${c.name} • ${typeNames[type]}`,extra:[{name:'search',isRequired:false},{name:'skip',isRequired:false}]})));
-const manifest={id:'community.dc.timeline.catalog',version:'2.0.0',name:'DC Timeline — Free Catalog',description:'Independent fan catalog: release order, curated DC universes, characters and animation. Some catalogs are incomplete. Not affiliated with DC. No streams hosted.',resources:['catalog'],types:['movie','series'],catalogs,behaviorHints:{configurable:false}};
+// Short, remote-friendly labels. Catalog IDs remain unchanged so existing installations keep working.
+const shortNames={
+ all_dc_movies_tv_shows:'DC — All Titles',
+ release_order_oldest_first:'Release — Oldest',
+ release_order_newest_first:'Release — Newest',
+ chronological_story_order:'Story Timeline',
+ movies_only:'All Movies', tv_series_only:'All TV Shows',
+ upcoming_dc_releases:'Coming Soon', essential_dc_watch_order:'Essential Watch Order',
+ dc_universe_dcu_james_gunn:'DCU',dc_extended_universe_dceu:'DCEU',
+ arrowverse_complete_watch_order:'Arrowverse',the_batman_reeves_universe:'The Batman Universe',
+ joker_universe:'Joker Universe',dc_elseworlds:'Elseworlds',
+ dc_animated_movie_universe_dcamu:'DCAMU',tomorrowverse:'Tomorrowverse',
+ dc_animated_universe_dcau:'DCAU',standalone_dc_productions:'Standalone',
+ release_order_within_each_universe:'Universe Release Order',
+ all_dc_animated_movies:'Animated Movies',all_dc_animated_series:'Animated TV',
+ batman_animations:'Batman Animated',superman_animations:'Superman Animated',
+ justice_league_animations:'Justice League Animated',
+ classic_dc_tv_shows:'Classic TV',modern_dc_tv_shows:'Modern TV',
+ dc_kids_family:'Kids & Family',dc_lego_movies_specials:'LEGO Specials',
+ dc_animated_shorts:'Animated Shorts',crossover_event_watch_orders:'Crossovers',
+ connected_movies_tv_episodes:'Connected Stories',character_origin_stories:'Origin Stories',
+ villain_focused_stories:'Villains',live_action_only:'Live Action',
+ animation_only:'Animation',dc_movies_by_decade:'Movies by Decade',
+ dc_tv_shows_by_decade:'TV by Decade',completed_series:'Completed TV',
+ newly_released_titles:'New Releases'
+};
+const priority=['all_dc_movies_tv_shows','release_order_oldest_first','release_order_newest_first',
+ 'chronological_story_order','movies_only','tv_series_only','upcoming_dc_releases',
+ 'dc_extended_universe_dceu','dc_universe_dcu_james_gunn','arrowverse_complete_watch_order',
+ 'batman','superman'];
+const sortedConfigs=[...configs].sort((a,b)=>{
+ const ai=priority.indexOf(a.id),bi=priority.indexOf(b.id);
+ if(ai!==-1||bi!==-1)return (ai===-1?Infinity:ai)-(bi===-1?Infinity:bi);
+ return 0;
+});
+const catalogs=sortedConfigs.flatMap(c=>['movie','series'].filter(type=>
+ !((c.id==='movies_only'||c.id==='all_dc_animated_movies'||c.id==='dc_movies_by_decade')&&type==='series')&&
+ !((c.id==='tv_series_only'||c.id==='all_dc_animated_series'||c.id==='dc_tv_shows_by_decade')&&type==='movie')
+ ).map(type=>({id:`dc_${c.id}_${type}`,type,
+ name:shortNames[c.id]||c.name,
+ extra:[{name:'search',isRequired:false},{name:'skip',isRequired:false}]})));
+const manifest={id:'community.dc.timeline.catalog',version:'2.1.0',name:'DC Timeline — Free Catalog',description:'Independent fan catalog: release order, curated DC universes, characters and animation. Some catalogs are incomplete. Not affiliated with DC. No streams hosted.',resources:['catalog'],types:['movie','series'],catalogs,behaviorHints:{configurable:false}};
 function releaseSort(a,b){return (a.releaseDate&&b.releaseDate?a.releaseDate.localeCompare(b.releaseDate):a.year-b.year)||a.i-b.i;}
 function matchTimeline(entry,label){return entry.name===label || `${entry.name}|${entry.year}`===label;}
 function getCatalog(type,id,extra={}){
