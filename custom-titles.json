@@ -1,1 +1,394 @@
-[]
+[
+  [
+    "Batman",
+    1943,
+    "movie",
+    "Batman",
+    "tt0035665"
+  ],
+  [
+    "Batman and Robin",
+    1949,
+    "movie",
+    "Batman",
+    "tt0041162"
+  ],
+  [
+    "Superman",
+    1948,
+    "movie",
+    "Superman",
+    "tt0040852"
+  ],
+  [
+    "Atom Man vs. Superman",
+    1950,
+    "movie",
+    "Superman",
+    "tt0042211"
+  ],
+  [
+    "Superman and the Mole Men",
+    1951,
+    "movie",
+    "Superman",
+    "tt0044091"
+  ],
+  [
+    "Adventures of Superman",
+    1952,
+    "series",
+    "Superman",
+    "tt0044231"
+  ],
+  [
+    "Batman",
+    1966,
+    "series",
+    "Batman",
+    "tt0059968"
+  ],
+  [
+    "Batman: The Movie",
+    1966,
+    "movie",
+    "Batman",
+    "tt0060153"
+  ],
+  [
+    "Super Friends",
+    1973,
+    "series",
+    "Animation",
+    "tt0069641"
+  ],
+  [
+    "Wonder Woman",
+    1975,
+    "series",
+    "Standalone",
+    "tt0074074"
+  ],
+  [
+    "The New Adventures of Batman",
+    1977,
+    "series",
+    "Animation",
+    "tt0075543"
+  ],
+  [
+    "Supergirl",
+    1984,
+    "movie",
+    "Superman",
+    "tt0088206"
+  ],
+  [
+    "Superboy",
+    1988,
+    "series",
+    "Superman",
+    "tt0094559"
+  ],
+  [
+    "Swamp Thing",
+    1982,
+    "movie",
+    "Standalone",
+    "tt0084745"
+  ],
+  [
+    "The Return of Swamp Thing",
+    1989,
+    "movie",
+    "Standalone",
+    "tt0098193"
+  ],
+  [
+    "Steel",
+    1997,
+    "movie",
+    "Standalone",
+    "tt0120207"
+  ],
+  [
+    "Batman: The Movie - Mystery of the Batwoman",
+    2003,
+    "movie",
+    "Animation",
+    "tt0346578"
+  ],
+  [
+    "Batman & Mr. Freeze: SubZero",
+    1998,
+    "movie",
+    "Animation",
+    "tt0143127"
+  ],
+  [
+    "Batman Beyond: Return of the Joker",
+    2000,
+    "movie",
+    "Animation",
+    "tt0233298"
+  ],
+  [
+    "Batman: Gotham Knight",
+    2008,
+    "movie",
+    "Animation",
+    "tt1117563"
+  ],
+  [
+    "Batman: Year One",
+    2011,
+    "movie",
+    "Animation",
+    "tt1672723"
+  ],
+  [
+    "Batman: The Dark Knight Returns, Part 1",
+    2012,
+    "movie",
+    "Animation",
+    "tt2313197"
+  ],
+  [
+    "Batman: The Dark Knight Returns, Part 2",
+    2013,
+    "movie",
+    "Animation",
+    "tt2166834"
+  ],
+  [
+    "Son of Batman",
+    2014,
+    "movie",
+    "Animation",
+    "tt3139072"
+  ],
+  [
+    "Batman: Assault on Arkham",
+    2014,
+    "movie",
+    "Animation",
+    "tt3139086"
+  ],
+  [
+    "Batman vs. Robin",
+    2015,
+    "movie",
+    "Animation",
+    "tt4324274"
+  ],
+  [
+    "Batman: Bad Blood",
+    2016,
+    "movie",
+    "Animation",
+    "tt4870838"
+  ],
+  [
+    "Batman Ninja",
+    2018,
+    "movie",
+    "Animation",
+    "tt7451284"
+  ],
+  [
+    "Batman: Hush",
+    2019,
+    "movie",
+    "Animation",
+    "tt8752440"
+  ],
+  [
+    "Superman: Doomsday",
+    2007,
+    "movie",
+    "Animation",
+    "tt0934706"
+  ],
+  [
+    "All-Star Superman",
+    2011,
+    "movie",
+    "Animation",
+    "tt1699114"
+  ],
+  [
+    "Superman vs. The Elite",
+    2012,
+    "movie",
+    "Animation",
+    "tt2224455"
+  ],
+  [
+    "Justice League: The New Frontier",
+    2008,
+    "movie",
+    "Animation",
+    "tt0902272"
+  ],
+  [
+    "Wonder Woman",
+    2009,
+    "movie",
+    "Animation",
+    "tt1186373"
+  ],
+  [
+    "Green Lantern: First Flight",
+    2009,
+    "movie",
+    "Animation",
+    "tt1384590"
+  ],
+  [
+    "Justice League: Doom",
+    2012,
+    "movie",
+    "Animation",
+    "tt2027128"
+  ],
+  [
+    "The Batman",
+    2004,
+    "series",
+    "Animation",
+    "tt0398417"
+  ],
+  [
+    "Legion of Super Heroes",
+    2006,
+    "series",
+    "Animation",
+    "tt0775372"
+  ],
+  [
+    "Batman: The Brave and the Bold",
+    2008,
+    "series",
+    "Animation",
+    "tt1213218"
+  ],
+  [
+    "Green Lantern: The Animated Series",
+    2011,
+    "series",
+    "Animation",
+    "tt1724587"
+  ],
+  [
+    "Beware the Batman",
+    2013,
+    "series",
+    "Animation",
+    "tt2329077"
+  ],
+  [
+    "Teen Titans Go!",
+    2013,
+    "series",
+    "Animation",
+    "tt2771780"
+  ],
+  [
+    "DC Super Hero Girls",
+    2019,
+    "series",
+    "Animation",
+    "tt9628244"
+  ],
+  [
+    "Birds of Prey",
+    2002,
+    "series",
+    "Standalone",
+    "tt0312098"
+  ],
+  [
+    "Human Target",
+    1992,
+    "series",
+    "Standalone",
+    "tt0103447"
+  ],
+  [
+    "The Flash",
+    1990,
+    "series",
+    "Standalone",
+    "tt0098798"
+  ],
+  [
+    "The Flash II: Revenge of the Trickster",
+    1991,
+    "movie",
+    "Standalone",
+    "tt0101893"
+  ],
+  [
+    "The Flash III: Deadly Nightshade",
+    1992,
+    "movie",
+    "Standalone",
+    "tt0104289"
+  ],
+  [
+    "LEGO Batman: The Movie - DC Super Heroes Unite",
+    2013,
+    "movie",
+    "Animation",
+    "tt2465238"
+  ],
+  [
+    "LEGO DC Comics Super Heroes: Justice League vs. Bizarro League",
+    2015,
+    "movie",
+    "Animation",
+    "tt4189260"
+  ],
+  [
+    "LEGO DC Comics Super Heroes: Justice League - Attack of the Legion of Doom!",
+    2015,
+    "movie",
+    "Animation",
+    "tt4938416"
+  ],
+  [
+    "LEGO DC Comics Super Heroes: Justice League - Cosmic Clash",
+    2016,
+    "movie",
+    "Animation",
+    "tt5251438"
+  ],
+  [
+    "LEGO DC Super Hero Girls: Brain Drain",
+    2017,
+    "movie",
+    "Animation",
+    "tt7158814"
+  ],
+  [
+    "LEGO DC Super Heroes: The Flash",
+    2018,
+    "movie",
+    "Animation",
+    "tt7877382"
+  ],
+  [
+    "LEGO DC Batman: Family Matters",
+    2019,
+    "movie",
+    "Animation",
+    "tt10327712"
+  ],
+  [
+    "LEGO DC Shazam!: Magic and Monsters",
+    2020,
+    "movie",
+    "Animation",
+    "tt12093878"
+  ]
+]
