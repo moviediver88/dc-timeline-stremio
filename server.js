@@ -1,4 +1,4 @@
- 'use strict';
+'use strict';
 const http=require('node:http');
 const seed=require('./catalog.json');
 const custom=require('./custom-titles.json');
@@ -84,17 +84,22 @@ const sortedConfigs=[...configs].sort((a,b)=>{
 const catalogs=sortedConfigs.flatMap(c=>['movie','series'].filter(type=>
  !((c.id==='movies_only'||c.id==='all_dc_animated_movies'||c.id==='dc_movies_by_decade')&&type==='series')&&
  !((c.id==='tv_series_only'||c.id==='all_dc_animated_series'||c.id==='dc_tv_shows_by_decade')&&type==='movie')
- ).map(type=>({id:`dc_${c.id}_${type}`,type,
+ ).map(type=>({id:`dc_${c.id}_${type}`,type:'dc',
  name:shortNames[c.id]||c.name,
  extra:[{name:'search',isRequired:false},{name:'skip',isRequired:false}]})));
-const manifest={id:'community.dc.timeline.catalog',version:'2.1.0',name:'DC Timeline — Free Catalog',description:'Independent fan catalog: release order, curated DC universes, characters and animation. Some catalogs are incomplete. Not affiliated with DC. No streams hosted.',resources:['catalog'],types:['movie','series'],catalogs,behaviorHints:{configurable:false}};
+// 'dc' is a dedicated Stremio browsing category. The ID suffix still records
+// whether the catalog contains movies or series, preserving existing IDs.
+const manifest={id:'community.dc.timeline.catalog',version:'2.2.0',name:'DC Timeline — Free Catalog',description:'Independent fan catalog: release order, curated DC universes, characters and animation. Some catalogs are incomplete. Not affiliated with DC. No streams hosted.',resources:['catalog'],types:['dc','movie','series'],catalogs,behaviorHints:{configurable:false}};
 function releaseSort(a,b){return (a.releaseDate&&b.releaseDate?a.releaseDate.localeCompare(b.releaseDate):a.year-b.year)||a.i-b.i;}
 function matchTimeline(entry,label){return entry.name===label || `${entry.name}|${entry.year}`===label;}
 function getCatalog(type,id,extra={}){
- const conf=configs.find(c=>`dc_${c.id}_${type}`===id);
- if(!conf||!catalogs.some(c=>c.id===id))return {metas:[]};
+ // Allow the new DC type and legacy movie/series URLs for compatibility.
+ const sourceType=id.endsWith('_movie')?'movie':id.endsWith('_series')?'series':null;
+ const conf=configs.find(c=>sourceType&&`dc_${c.id}_${sourceType}`===id);
+ if(!conf||!['dc','movie','series'].includes(type)||
+    (type!=='dc'&&type!==sourceType)||!catalogs.some(c=>c.id===id))return {metas:[]};
  const c=conf.id;
- let rows=all.filter(x=>x.type===type);
+ let rows=all.filter(x=>x.type===sourceType);
  if(c==='upcoming_dc_releases')rows=rows.filter(x=>x.year>yearNow);
  else if(c==='newly_released_titles')rows=rows.filter(x=>x.year>=yearNow-1&&x.year<=yearNow);
  else if(c==='live_action_only')rows=rows.filter(x=>x.universe!=='Animation');
@@ -130,7 +135,7 @@ const server=http.createServer((req,res)=>{
  if(url.pathname==='/')return home(req,res);
  if(url.pathname==='/manifest.json')return respond(res,200,manifest);
  if(url.pathname==='/health')return respond(res,200,{status:'ok',entries:all.length,options:configs.length,catalogs:catalogs.length});
- const m=url.pathname.match(/^\/catalog\/(movie|series)\/([^/]+)(?:\/(.+))?\.json$/);
+ const m=url.pathname.match(/^\/catalog\/(dc|movie|series)\/([^/]+)(?:\/(.+))?\.json$/);
  if(m){const extra=Object.fromEntries(new URLSearchParams(m[3]||''));return respond(res,200,getCatalog(m[1],m[2],extra));}
  return respond(res,404,{error:'Not found'});
 });
