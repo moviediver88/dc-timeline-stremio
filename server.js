@@ -46,7 +46,7 @@ const all=[...unique.values()].map(x=>{
   return {...x,tags:new Set([...auto,...explicit])};
 });
 const timelines={
- dceu:['Wonder Woman','Wonder Woman 1984','Man of Steel','Batman v Superman: Dawn of Justice','Suicide Squad','Justice League',"Zack Snyder's Justice League",'Aquaman','Shazam!','Birds of Prey','The Suicide Squad','Peacemaker','Black Adam','Shazam! Fury of the Gods','The Flash|2023','Blue Beetle','Aquaman and the Lost Kingdom'],
+ dceu:['Wonder Woman|2017','Wonder Woman 1984|2020','Man of Steel|2013','Batman v Superman: Dawn of Justice|2016','Suicide Squad|2016','Justice League|2017',"Zack Snyder's Justice League|2021",'Aquaman|2018','Shazam!|2019','Birds of Prey|2020','The Suicide Squad|2021','Peacemaker|2022','Black Adam|2022','Shazam! Fury of the Gods|2023','The Flash|2023','Blue Beetle|2023','Aquaman and the Lost Kingdom|2023'],
  dcu:['Creature Commandos','Superman|2025','Supergirl|2026','Lanterns'],
  reeves:['The Batman|2022','The Penguin'],joker:['Joker','Joker: Folie à Deux'],
  arrowverse:['Arrow','The Flash|2014','Supergirl|2015',"DC's Legends of Tomorrow",'Black Lightning','Batwoman'],
@@ -60,7 +60,7 @@ const shortNames={all_dc_movies_tv_shows:'DC — All Titles',release_order_oldes
 const priority=['all_dc_movies_tv_shows','release_order_oldest_first','release_order_newest_first','chronological_story_order','movies_only','tv_series_only','upcoming_dc_releases','dc_extended_universe_dceu','dc_universe_dcu_james_gunn','arrowverse_complete_watch_order','batman','superman'];
 const sortedConfigs=[...configs].sort((a,b)=>{const ai=priority.indexOf(a.id),bi=priority.indexOf(b.id);return (ai<0?Infinity:ai)-(bi<0?Infinity:bi);});
 const catalogs=sortedConfigs.map(c=>({id:`dc_${c.id}`,type:'DC',name:shortNames[c.id]||c.name,extra:[{name:'search',isRequired:false},{name:'skip',isRequired:false}]}));
-const manifest={id:'community.dc.timeline.catalog',version:'3.0.0',name:'DC Timeline — Free Catalog',description:'Independent fan catalog of DC movies, television, animation and LEGO. Work in progress. No streams hosted; not affiliated with DC.',resources:['catalog','meta'],types:['DC','movie','series'],catalogs,behaviorHints:{configurable:false}};
+const manifest={id:'community.dc.timeline.catalog',version:'3.0.1',name:'DC Timeline — Free Catalog',description:'Independent fan catalog of DC movies, television, animation and LEGO. Work in progress. No streams hosted; not affiliated with DC.',resources:['catalog','meta'],types:['DC','movie','series'],catalogs,behaviorHints:{configurable:false}};
 const makeId=x=>/^tt\d+$/.test(x.id||'')?x.id:`dc_${x.year}_${x.type}_${clean(x.name)}`;
 const posterUrl=x=>x.name==='Justice League Unlimited'?'https://dc-timeline-stremio.onrender.com/poster/jlu.svg':/^tt\d+$/.test(x.id||'')?`https://images.metahub.space/poster/medium/${x.id}/img`:`https://dc-timeline-stremio.onrender.com/poster/${makeId(x)}.svg`;
 function metaFor(x){return {id:makeId(x),type:x.type,name:x.name,poster:posterUrl(x),releaseInfo:String(x.year),description:`${x.universe} • Release year: ${x.year}${/^tt\d+$/.test(x.id||'')?'':' • Catalog reference only: IMDb ID not yet verified; playback integrations may not recognize this entry.'}`};}
@@ -81,8 +81,22 @@ function getCatalog(type,id,extra={}){
  else if(c==='standalone_dc_productions')rows=rows.filter(x=>x.universe==='Standalone');
  else if(c==='release_order_within_each_universe')rows=rows.filter(x=>['DCEU','DCU','Arrowverse','The Batman','Joker','Nolan Batman'].includes(x.universe));
  else if(universe[c]&&!['dcamu','tomorrowverse','dcau'].includes(universe[c]))rows=rows.filter(x=>x.universe===universe[c]);
- else if(!['all_dc_movies_tv_shows','release_order_oldest_first','release_order_newest_first','chronological_story_order','movies_only','tv_series_only','essential_dc_watch_order','dc_movies_by_decade','dc_tv_shows_by_decade'].includes(c))rows=rows.filter(x=>x.tags.has(c));
- if(aliases[c])rows=timelines[aliases[c]].flatMap(name=>all.filter(x=>matchTimeline(x,name)));
+ else if(!aliases[c]&&!['all_dc_movies_tv_shows','release_order_oldest_first','release_order_newest_first','chronological_story_order','movies_only','tv_series_only','essential_dc_watch_order','dc_movies_by_decade','dc_tv_shows_by_decade'].includes(c))rows=rows.filter(x=>x.tags.has(c));
+ if(aliases[c]){
+  // Order the already-filtered candidates, never reintroduce other universes/types.
+  const candidates=rows;
+  const seen=new Set();
+  rows=timelines[aliases[c]].flatMap(label=>{
+   const matches=candidates.filter(x=>matchTimeline(x,label));
+   // A verified IMDb record wins over a duplicate reference record.
+   matches.sort((a,b)=>Number(/^tt\d+$/.test(b.id||''))-Number(/^tt\d+$/.test(a.id||''))||a.i-b.i);
+   const chosen=matches[0];
+   if(!chosen)return [];
+   const key=makeId(chosen);
+   if(seen.has(key))return [];
+   seen.add(key);return [chosen];
+  });
+ }
  else if(c==='release_order_within_each_universe')rows.sort((a,b)=>a.universe.localeCompare(b.universe)||releaseSort(a,b));
  else rows.sort(releaseSort);
  if(['release_order_newest_first','newly_released_titles','upcoming_dc_releases'].includes(c))rows.reverse();
@@ -105,5 +119,5 @@ const server=http.createServer((req,res)=>{
  if(m)return respond(res,200,getCatalog(m[1],m[2],Object.fromEntries(new URLSearchParams(m[3]||''))));
  return respond(res,404,{error:'Not found'});
 });
-if(require.main===module)server.listen(Number(process.env.PORT||7000),'0.0.0.0',()=>console.log('DC Timeline v3.0 ready'));
+if(require.main===module)server.listen(Number(process.env.PORT||7000),'0.0.0.0',()=>console.log('DC Timeline v3.0.1 ready'));
 module.exports={server,manifest,getCatalog,all};
