@@ -1,3 +1,9 @@
+## Support DC Timeline
+
+Donations are optional. The add-on remains free.
+
+[Support DolphinDiver on Ko-fi](https://ko-fi.com/dolphindiver)
+
 DC Timeline — Free Stremio Catalog
 Browse DC movies, series and animation with a compact 11-category menu.
 An independent fan project. Not affiliated with DC, Warner Bros., or Stremio.
