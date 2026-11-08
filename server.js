@@ -1,5 +1,6 @@
 'use strict';
 const http = require('node:http');
+const configuration = require('./configure');
 const {URL, URLSearchParams} = require('node:url');
 const seed = require('./catalog.json');
 const custom = require('./custom-titles.json');
@@ -67,7 +68,7 @@ const menu=[
 ];
 configs.push({id:'animated_universes',name:'Animated Universes'});
 const catalogs=menu.map(([id,name])=>({id:`dc_${id}`,type:'DC',name,extra:[{name:'search',isRequired:false},{name:'skip',isRequired:false}]}));
-const manifest={id:'community.dc.timeline.catalog',version:'3.1.0',logo:'https://raw.githubusercontent.com/moviediver88/dc-timeline-stremio/main/Glowing%20Silver%20DC%20Logo%20Split%20Storm.png',name:'DC Timeline',description:'Explore DC movies, TV series, animation and LEGO in release and chronological watch orders. Includes Batman, Superman, Wonder Woman, the DCU, DCEU, Arrowverse and more. Independent fan catalog; no streams hosted. Not affiliated with DC. Optional support: https://ko-fi.com/dolphindiver',resources:['catalog','meta'],types:['DC','movie','series'],catalogs,behaviorHints:{configurable:false}};
+const manifest={id:'community.dc.timeline.catalog',version:'3.2.0',logo:'https://raw.githubusercontent.com/moviediver88/dc-timeline-stremio/main/Glowing%20Silver%20DC%20Logo%20Split%20Storm.png',name:'DC Timeline',description:'Explore DC movies, TV series, animation and LEGO in release and chronological watch orders. Includes Batman, Superman, Wonder Woman, the DCU, DCEU, Arrowverse and more. Independent fan catalog; no streams hosted. Not affiliated with DC. Optional support: https://ko-fi.com/dolphindiver',resources:['catalog','meta'],types:['DC','movie','series'],catalogs,behaviorHints:{configurable:true,configurationRequired:false},config:configuration.settings(catalogs)};
 const makeId=x=>/^tt\d+$/.test(x.id||'')?x.id:`dc_${x.year}_${x.type}_${clean(x.name)}`;
 const posterUrl=x=>x.name==='Justice League Unlimited'?'https://dc-timeline-stremio.onrender.com/poster/jlu.svg':/^tt\d+$/.test(x.id||'')?`https://images.metahub.space/poster/medium/${x.id}/img`:`https://dc-timeline-stremio.onrender.com/poster/${makeId(x)}.svg`;
 function metaFor(x){return {id:makeId(x),type:x.type,name:x.name,poster:posterUrl(x),releaseInfo:String(x.year),description:`${x.universe} • Release year: ${x.year}${/^tt\d+$/.test(x.id||'')?'':' • Catalog reference only: IMDb ID not yet verified; playback integrations may not recognize this entry.'}`};}
@@ -118,56 +119,27 @@ const server=http.createServer((req,res)=>{
  if(req.method==='OPTIONS'){res.writeHead(204,{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'GET, OPTIONS'});return res.end();}
  const url=new URL(req.url,'http://localhost');
  
-if(url.pathname==='/'){
-  const manifestUrl='https://dc-timeline-stremio.onrender.com/manifest.json';
-  const html=`<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DC Timeline</title>
-<style>
-body{margin:0;background:#140c13;color:#f7f2f6;font-family:Arial,sans-serif}
-main{max-width:950px;margin:65px auto;padding:0 24px;line-height:1.7}
-h1{font-size:54px;margin:0 0 22px}
-p{font-size:21px}
-a{color:#ff9cb1}
-.buttons{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0}
-.button{background:#b30d37;color:white;padding:17px 25px;border-radius:15px;text-decoration:none;font-size:20px}
-.url{background:#2b2029;border:1px solid #735361;border-radius:10px;padding:17px;overflow-wrap:anywhere}
-.small{font-size:18px}
-@media(max-width:600px){h1{font-size:40px}}
-</style>
-</head>
-<body>
-<main>
-<h1>DC Timeline</h1>
-<p>Free DC catalogs and suggested watch orders for Stremio, by DolphinDiver.</p>
-<p>Movies · TV Series · Animation · Batman · Superman · Justice League</p>
-<div class="buttons">
-<a class="button" href="stremio://dc-timeline-stremio.onrender.com/manifest.json">Install in Stremio</a>
-<a class="button" href="https://ko-fi.com/dolphindiver" target="_blank" rel="noopener noreferrer">Optional support on Ko-fi</a>
-</div>
-<p>Or copy this manifest URL into Stremio or Addon Manager:</p>
-<div class="url">${manifestUrl}</div>
-<p class="small">Independent fan project. Not affiliated with DC, Warner Bros., or Stremio. Catalogs only; no video streams hosted. Playback requires other add-ons. Coverage and artwork are a work in progress.</p>
-<p class="small"><a href="https://github.com/moviediver88/dc-timeline-stremio#readme">Instructions and feedback</a></p>
-</main>
-</body>
-</html>`;
-  res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});
-  return res.end(html);
-}
-
- if(url.pathname==='/manifest.json')return respond(res,200,manifest);
+let route=url.pathname;
+ let selected=catalogs;
+ const configured=route.match(/^\/([^/]+)\/(manifest\.json|configure|catalog\/.*|meta\/.*)$/);
+ if(configured){
+  try{selected=configuration.selection(configured[1],catalogs);}catch(error){return respond(res,400,{error:error.message});}
+  route='/'+configured[2];
+ }
+ if(route==='/'||route==='/configure'){
+  res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});
+  return res.end(configuration.page(manifest,selected));
+ }
+ if(route==='/manifest.json')return respond(res,200,{...manifest,catalogs:selected,config:configuration.settings(catalogs).map(c=>({...c,default:selected.some(x=>x.id===c.key)?'checked':''}))});
  if(url.pathname==='/health')return respond(res,200,{status:'ok',version:manifest.version,entries:all.length,imdbLinked:all.filter(x=>/^tt\d+$/.test(x.id||'')).length,referenceOnly:all.filter(x=>!/^tt\d+$/.test(x.id||'')).length,options:catalogs.length,catalogs:catalogs.length});
- const pm=url.pathname.match(/^\/poster\/(.+)\.svg$/);
+ const pm=route.match(/^\/poster\/(.+)\.svg$/);
  if(pm){const id=pm[1];const x=id==='jlu'?all.find(x=>x.name==='Justice League Unlimited'):all.find(x=>makeId(x)===id);if(!x)return respond(res,404,{error:'Unknown poster'});const safe=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));const lines=x.name.match(/.{1,21}(?:\s|$)/g)||[x.name];const words=lines.slice(0,6).map((t,i)=>`<text x="300" y="${410+i*55}" text-anchor="middle" fill="white" font-size="34" font-family="sans-serif">${safe(t.trim())}</text>`).join('');res.writeHead(200,{'Content-Type':'image/svg+xml','Access-Control-Allow-Origin':'*','Cache-Control':'public, max-age=86400'});return res.end(`<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900" viewBox="0 0 600 900"><rect width="600" height="900" fill="#151c34"/><rect x="20" y="20" width="560" height="860" rx="18" fill="#253456"/><text x="300" y="175" text-anchor="middle" fill="#89b8ff" font-size="64" font-family="sans-serif" font-weight="bold">DC</text>${words}<text x="300" y="810" text-anchor="middle" fill="#b5c4d9" font-size="30" font-family="sans-serif">${x.year} • Reference</text></svg>`);}
- const mm=url.pathname.match(/^\/meta\/(DC|dc|movie|series)\/([^/]+)\.json$/);
+ const mm=route.match(/^\/meta\/(DC|dc|movie|series)\/([^/]+)\.json$/);
  if(mm){const x=all.find(x=>makeId(x)===decodeURIComponent(mm[2]));return respond(res,200,{meta:x?metaFor(x):null});}
- const m=url.pathname.match(/^\/catalog\/(DC|dc|movie|series)\/([^/]+)(?:\/(.+))?\.json$/);
+ const m=route.match(/^\/catalog\/(DC|dc|movie|series)\/([^/]+)(?:\/(.+))?\.json$/);
+ if(m&&configured&&!selected.some(c=>c.id===m[2]))return respond(res,404,{error:'Catalog not selected'});
  if(m)return respond(res,200,getCatalog(m[1],m[2],Object.fromEntries(new URLSearchParams(m[3]||''))));
  return respond(res,404,{error:'Not found'});
 });
-if(require.main===module)server.listen(Number(process.env.PORT||7000),'0.0.0.0',()=>console.log('DC Timeline v3.1.0 ready'));
+if(require.main===module)server.listen(Number(process.env.PORT||7000),'0.0.0.0',()=>console.log('DC Timeline v3.2.0 ready'));
 module.exports={server,manifest,getCatalog,all};
