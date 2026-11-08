@@ -117,7 +117,48 @@ function respond(res,status,obj){res.writeHead(status,{'Content-Type':'applicati
 const server=http.createServer((req,res)=>{
  if(req.method==='OPTIONS'){res.writeHead(204,{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'GET, OPTIONS'});return res.end();}
  const url=new URL(req.url,'http://localhost');
- if(url.pathname==='/')return respond(res,200,{name:manifest.name,version:manifest.version,install:`https://${req.headers.host||'dc-timeline-stremio.onrender.com'}/manifest.json`,entries:all.length});
+ 
+if(url.pathname==='/'){
+  const manifestUrl='https://dc-timeline-stremio.onrender.com/manifest.json';
+  const html=`<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DC Timeline</title>
+<style>
+body{margin:0;background:#140c13;color:#f7f2f6;font-family:Arial,sans-serif}
+main{max-width:950px;margin:65px auto;padding:0 24px;line-height:1.7}
+h1{font-size:54px;margin:0 0 22px}
+p{font-size:21px}
+a{color:#ff9cb1}
+.buttons{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0}
+.button{background:#b30d37;color:white;padding:17px 25px;border-radius:15px;text-decoration:none;font-size:20px}
+.url{background:#2b2029;border:1px solid #735361;border-radius:10px;padding:17px;overflow-wrap:anywhere}
+.small{font-size:18px}
+@media(max-width:600px){h1{font-size:40px}}
+</style>
+</head>
+<body>
+<main>
+<h1>DC Timeline</h1>
+<p>Free DC catalogs and suggested watch orders for Stremio, by DolphinDiver.</p>
+<p>Movies · TV Series · Animation · Batman · Superman · Justice League</p>
+<div class="buttons">
+<a class="button" href="stremio://dc-timeline-stremio.onrender.com/manifest.json">Install in Stremio</a>
+<a class="button" href="https://ko-fi.com/dolphindiver" target="_blank" rel="noopener noreferrer">Optional support on Ko-fi</a>
+</div>
+<p>Or copy this manifest URL into Stremio or Addon Manager:</p>
+<div class="url">${manifestUrl}</div>
+<p class="small">Independent fan project. Not affiliated with DC, Warner Bros., or Stremio. Catalogs only; no video streams hosted. Playback requires other add-ons. Coverage and artwork are a work in progress.</p>
+<p class="small"><a href="https://github.com/moviediver88/dc-timeline-stremio#readme">Instructions and feedback</a></p>
+</main>
+</body>
+</html>`;
+  res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});
+  return res.end(html);
+}
+
  if(url.pathname==='/manifest.json')return respond(res,200,manifest);
  if(url.pathname==='/health')return respond(res,200,{status:'ok',version:manifest.version,entries:all.length,imdbLinked:all.filter(x=>/^tt\d+$/.test(x.id||'')).length,referenceOnly:all.filter(x=>!/^tt\d+$/.test(x.id||'')).length,options:catalogs.length,catalogs:catalogs.length});
  const pm=url.pathname.match(/^\/poster\/(.+)\.svg$/);
