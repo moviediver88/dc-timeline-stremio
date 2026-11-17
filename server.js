@@ -125,6 +125,29 @@ const server=http.createServer((req,res)=>{
  if(req.method==='OPTIONS'){res.writeHead(204,{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'GET, OPTIONS'});return res.end();}
  const url=new URL(req.url,'http://localhost');
  
+if (req.method === 'POST' && url.pathname === '/track') {
+  let body = '';
+  req.on('data', chunk => {
+    body += chunk;
+    if (body.length > 1024) req.destroy();
+  });
+  req.on('end', () => {
+    try {
+      const event = JSON.parse(body).event;
+      if (!['install_click', 'copy_click'].includes(event)) {
+        throw Error('Invalid event');
+      }
+      console.log('[DC Setup Action]', new Date().toISOString(), event);
+      res.writeHead(204);
+      res.end();
+    } catch {
+      res.writeHead(400);
+      res.end();
+    }
+  });
+  return;
+}
+
 let route=url.pathname;
  let selected=catalogs;
  const configured=route.match(/^\/([^/]+)\/(manifest\.json|configure|catalog\/.*|meta\/.*)$/);
