@@ -18,7 +18,7 @@ for(const [i,r] of [...seed,...custom].entries()) {
   else if(!unique.get(key).id && id)unique.get(key).id=id;
 }
 const all=[...unique.values()].map(x=>{
-  const n=x.name.toLowerCase(), isAnimation=x.universe==='Animation', lego=/\blego\b/i.test(x.name);
+  const n=x.name.toLowerCase(), isAnimation=x.universe==='Animation', lego=/\blego\b/i.test(x.name);y
   const auto=[];
   if(isAnimation)auto.push('animation',x.type==='movie'?'all_dc_animated_movies':'all_dc_animated_series');
   if(lego)auto.push('dc_lego_movies_specials','dc_kids_family');
@@ -116,6 +116,12 @@ function getCatalog(type,id,extra={}){
 }
 function respond(res,status,obj){res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Access-Control-Allow-Origin':'*','Cache-Control':'public, max-age=900'});res.end(JSON.stringify(obj));}
 const server=http.createServer((req,res)=>{
+ if (req.method === 'GET') {
+  const path = new URL(req.url, 'http://localhost').pathname;
+  if (path === '/configure' || path.endsWith('/manifest.json') || path.includes('/catalog/')) {
+    console.log('[DC Activity]', new Date().toISOString(), path);
+  }
+} 
  if(req.method==='OPTIONS'){res.writeHead(204,{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'GET, OPTIONS'});return res.end();}
  const url=new URL(req.url,'http://localhost');
  
