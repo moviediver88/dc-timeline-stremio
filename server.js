@@ -18,7 +18,7 @@ for(const [i,r] of [...seed,...custom].entries()) {
   else if(!unique.get(key).id && id)unique.get(key).id=id;
 }
 const all=[...unique.values()].map(x=>{
-  const n=x.name.toLowerCase(), isAnimation=x.universe==='Animation', lego=/\blego\b/i.test(x.name);y
+  const n=x.name.toLowerCase(), isAnimation=x.universe==='Animation', lego=/\blego\b/i.test(x.name);
   const auto=[];
   if(isAnimation)auto.push('animation',x.type==='movie'?'all_dc_animated_movies':'all_dc_animated_series');
   if(lego)auto.push('dc_lego_movies_specials','dc_kids_family');
